@@ -12,13 +12,13 @@ http://www.sopds.ru
 Pull the latest version of the image from the docker.
 
 ```
-docker pull zveronline/sopds
+docker pull a1gal/docker-sopds
 ```
 
 Alternately you can build the image yourself.
 
 ```
-docker build -t zveronline/sopds https://github.com/zveronline/docker-sopds.git
+docker build -t a1gal/docker-sopds https://github.com/a-gal/docker-sopds.git
 ```
 
 # Quick Start
@@ -34,7 +34,7 @@ docker run --name sopds -d \
    --env 'DB_HOST=""' \
    --env 'DB_PORT=""' \
    --publish 8081:8001 \
-   zveronline/sopds
+   a1gal/docker-sopds
 ```
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
@@ -55,7 +55,7 @@ docker run --name sopds -d \
    --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
    --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
    --publish 8081:8001 \
-   zveronline/sopds
+   a1gal/docker-sopds
 ```
 
 # Scan library
@@ -78,6 +78,6 @@ docker run --name sopds -d \
    --env 'DB_PORT=""' \
    --env 'SOPDS_TMBOT_ENABLE="True"' \
    --publish 8081:8001 \
-   zveronline/sopds
+   a1gal/docker-sopds
 ```
 Please don't forget to configure the bot itself via interface of SOPDS.
