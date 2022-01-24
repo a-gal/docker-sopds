@@ -3,8 +3,8 @@ https://github.com/mitshel/sopds.git
 
 # Introduction
 
-Dockerfile to build a Simple OPDS server docker image.
-This fork is intended to be used with k8s
+Dockerfile to build a Simple OPDS server docker image. This fork is intended to be used with k8s.
+
 http://www.sopds.ru
 
 # Installation
