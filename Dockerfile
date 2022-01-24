@@ -1,12 +1,11 @@
 FROM python:3-alpine
-MAINTAINER zveronline@zveronline.ru
+MAINTAINER galaktionov8@gmail.com
 
 ENV DB_USER=sopds \
     DB_NAME=sopds \
     DB_PASS=sopds \
     DB_HOST="" \
     DB_PORT="" \
-    EXT_DB=False \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE=True \
     SOPDS_LANGUAGE=ru-RU \
@@ -53,7 +52,7 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 && mv /superuser.exp /sopds/superuser.exp \
 && apk del tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev \
 && rm -rf /root/.cache/ \
-&& apk add --no-cache -U bash libxml2 libxslt libffi libjpeg zlib postgresql expect \
+&& apk add --no-cache -U bash libxml2 libxslt libffi libjpeg zlib expect \
 && chmod +x /start.sh \
 && mkdir -p /sopds/tmp/ \
 && chmod ugo+w /sopds/tmp/ \
@@ -61,7 +60,6 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 #
 WORKDIR /sopds
 
-VOLUME /var/lib/pgsql
 EXPOSE 8001
 
 ENTRYPOINT ["/start.sh"]
