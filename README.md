@@ -23,26 +23,7 @@ docker build -t zveronline/sopds https://github.com/zveronline/docker-sopds.git
 
 # Quick Start
 
-Run the image
-
-```
-docker run --name sopds -d \
-   --volume /path/to/library:/library:ro \
-   --publish 8081:8001 \
-   zveronline/sopds
-```
-
-This will start the sopds server and you should now be able to browse the content on port 8081.
-
-```
-docker run --name sopds -d \
-   --volume /path/to/library:/library:ro \
-   --volume /path/to/database:/var/lib/pgsql \
-   --publish 8081:8001 \
-   zveronline/sopds
-```
-
-Also you can store postgresql database on external storage.
+Run the image. You have to store postgresql database on external storage.
 
 ```
 docker run --name sopds -d \
@@ -52,10 +33,11 @@ docker run --name sopds -d \
    --env 'DB_PASS=sopds' \
    --env 'DB_HOST=""' \
    --env 'DB_PORT=""' \
-   --env 'EXT_DB=True' \
    --publish 8081:8001 \
    zveronline/sopds
 ```
+
+This will start the sopds server and you should now be able to browse the content on port 8081.
 
 
 # Create superuser
@@ -64,7 +46,11 @@ By default the superuser will be created with predefined name "admin" and passwo
 ```bash
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
-   --volume /path/to/database:/var/lib/pgsql \
+   --env 'DB_USER=sopds' \
+   --env 'DB_NAME=sopds' \
+   --env 'DB_PASS=sopds' \
+   --env 'DB_HOST=""' \
+   --env 'DB_PORT=""' \
    --env 'SOPDS_SU_NAME="your_name_for_superuser"' \
    --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
    --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
@@ -85,7 +71,11 @@ By default the Telegram-bot isn't enabled. But you can configure it to be starte
 ```bash
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
-   --volume /path/to/database:/var/lib/pgsql \
+   --env 'DB_USER=sopds' \
+   --env 'DB_NAME=sopds' \
+   --env 'DB_PASS=sopds' \
+   --env 'DB_HOST=""' \
+   --env 'DB_PORT=""' \
    --env 'SOPDS_TMBOT_ENABLE="True"' \
    --publish 8081:8001 \
    zveronline/sopds
