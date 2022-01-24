@@ -18,7 +18,6 @@ ENV DB_USER=sopds \
     VERSION=0.47
 
 ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
-ADD requirements.txt /requirements.txt
 ADD configs/settings.py /settings.py 
 ADD scripts/start.sh /start.sh
 #add fb2converter for epub and mobi - https://github.com/rupor-github/fb2converter
@@ -35,7 +34,6 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev libffi
 && unzip sopds.zip \
 && rm sopds.zip \
 && mv sopds-* sopds \
-&& mv /requirements.txt /sopds/requirements.txt \
 && mv /settings.py /sopds/sopds/settings.py \
 && cd /sopds \
 && pip3 install --upgrade pip setuptools 'psycopg2-binary>=2.8,<2.9' \
