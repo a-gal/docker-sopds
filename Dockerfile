@@ -29,7 +29,7 @@ ADD scripts/fb2conv /fb2conv
 ADD scripts/superuser.exp /superuser.exp 
 #
 #incorporate all apk installation, compilation and execution of command in one branch
-RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev \
+RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev libffi-dev libc-dev jpeg-dev zlib-dev \
 && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && echo "Europe/Moscow" > /etc/timezone \
 && unzip sopds.zip \
