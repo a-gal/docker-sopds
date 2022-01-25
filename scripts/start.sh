@@ -5,7 +5,7 @@ if [ $MIGRATE == True ]
 then
 python3 manage.py migrate
 fi
-if [ ! -f /firstrun ]
+if [ ! -f /persistent/firstrun ]
 then
 python3 manage.py migrate
 
@@ -25,7 +25,7 @@ then
 expect /sopds/superuser.exp
 fi
 
-touch /firstrun
+touch /persistent/firstrun
 fi
 
 #To start the Telegram-bot if it enabled
