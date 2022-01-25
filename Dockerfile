@@ -56,6 +56,7 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev libffi
 && chmod ugo+w /sopds/tmp/ \
 && cd /
 #
+VOLUME  /persistent
 WORKDIR /sopds
 
 EXPOSE 8001
